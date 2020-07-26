@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-
-function App() {
-
-    return <div>这里是首页</div>
-}
+import App from './app.js';
 
 ReactDom.render(
     <App />,

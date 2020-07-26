@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -10,13 +11,29 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.js$/,
+                test: /.js$/, // 处理es以及react
                 use: ['babel-loader']
+            }, {
+                test: /.(png|jpg|gif|jpeg|svg)$/, // 处理图片文件
+                use: 'file-loader'
+            }, {
+                test: /.less$/,  // 处理less
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            }, {
+                test: /.css$/,  // 处理css
+                use: [
+                    'style-loader',
+                    'css.loader'
+                ]
             }
         ]
     },
     plugins: [
-
+        new CleanWebpackPlugin()
     ]
 }
 
